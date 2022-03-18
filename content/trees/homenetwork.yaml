@@ -1,0 +1,17 @@
+title: Netzwerk
+links:
+  fritz_box:
+    title: FRITZ!Box
+    url: http://192.168.178.1
+
+  monitoring:
+    title: Monitoring
+    name: monitoring
+    links:
+      grafana_bigmac:
+        title: Grafana bigmac
+        url: http://192.168.178.33:3200
+
+      prometheus_bigmac:
+        title: Prometheus bigmac
+        url: http://192.168.178.33:9090
