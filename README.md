@@ -1,4 +1,10 @@
 # freenestedtree
+Create nested linktrees with custom theming.
+
+## Install
+ - edit the config in `content` to fit your needs
+ - run `docker-compose up -d`
+ - got to `http://localhost:4363` in your browser and enjoy your tree!
 
 ## Build Setup
 

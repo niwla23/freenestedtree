@@ -1,26 +1,27 @@
 <template>
-  <div class="bg-gray-800 h-screen">
+  <div
+    v-if="tree"
+    class="background h-screen bg-cover bg-center"
+    :style="{
+      'background-image': `url(${tree.theme.backgroundImage})`,
+    }"
+  >
     <div class="grid place-items-center h-full pt-16 pb-8 md:pt-32 md:pb-32">
       <main
-        class="
-          rounded-lg
-          bg-blue-600
-          w-10/12
-          md:w-4/12
-          p-8
-          h-full
-          text-center
-          text-white
-          space-y-4
-        "
+        class="rounded-lg w-10/12 md:w-4/12 p-8 h-full text-center space-y-4"
+        :style="{
+          'background-color': tree.theme.boxColor,
+          color: tree.theme.textColor,
+          'backdrop-filter': `blur(${tree.theme.boxBlur})`,
+          'box-shadow': `0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`,
+        }"
       >
-        <div class="flex justify-center">
+        <div class="flex justify-center cursor-pointer" @click="back">
           <svg
             v-if="path.length > 0"
             class="fill-white h-8 w-8"
             viewBox="0 0 256 512"
             xmlns="http://www.w3.org/2000/svg"
-            @click="back"
           >
             <path
               fill="#fff"
@@ -29,8 +30,8 @@
           </svg>
           <h1 class="text-2xl font-bold">{{ dataShown.title }}</h1>
         </div>
-        <section v-for="link in dataShown.links" :key="link.name">
-          <a v-if="link.links" class="cursor-pointer" @click="openBranch">
+        <section v-for="(link, name) in dataShown.links" :key="name">
+          <a v-if="link.links" class="cursor-pointer" @click="openBranch(name)">
             {{ link.title }}
           </a>
           <a v-else :href="link.url">{{ link.title }}</a>
@@ -41,43 +42,60 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { Root, Branch } from '@/types/tree'
 
-export default Vue.extend({
-  async asyncData({ $content, params, error }) {
-    const slug = params.slug || 'index'
+// @Component({
+//   asyncData (this: MyPage, ctx) {
+//     return {
+//       test: this.bar() + this.foo // works & returns `foobar`
+//     }
+//   }
+// })
+
+@Component
+export default class TreeSlug extends Vue {
+  path: string[] = []
+  tree?: Root | null = null
+
+  head() {
+    return {
+      title: `${this.dataShown?.title} - ${this.tree?.title}`,
+    }
+  }
+
+  async mounted() {
+    const slug = this.$route.params.slug || 'index'
 
     try {
-      const tree = await $content('trees', slug).fetch()
-      return { tree }
+      const tree: unknown = await this.$content('trees', slug).fetch()
+      if (!Array.isArray(tree)) {
+        this.tree = tree as Root
+      }
     } catch {
-      error({ statusCode: 404, message: 'Page not found' })
+      this.$nuxt.error({ statusCode: 404, message: 'Page not found' })
     }
-  },
-  data: () => {
-    return {
-      path: [],
+  }
+
+  get dataShown(): Branch | null {
+    if (!this.tree) {
+      return null
     }
-  },
-  computed: {
-    dataShown() {
-      let currentData = this.tree
-      this.path.forEach((element) => {
+    let currentData: Branch = this.tree
+    this.path.forEach((element) => {
+      if (currentData.links) {
         currentData = currentData.links[element]
-      })
-      return currentData
-    },
-  },
-  mounted() {
-    console.log(this.tree)
-  },
-  methods: {
-    openBranch() {
-      this.path.push('monitoring')
-    },
-    back() {
-      this.path.pop()
-    },
-  },
-})
+      }
+    })
+    return currentData
+  }
+
+  openBranch(branch: string) {
+    this.path.push(branch)
+  }
+
+  back() {
+    this.path.pop()
+  }
+}
 </script>
