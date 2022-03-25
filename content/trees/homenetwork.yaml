@@ -25,6 +25,10 @@ links:
         title: Alertmanager bigmac
         url: http://192.168.178.33:9093
 
+      gotify:
+        title: Gotify
+        url: https://192.168.178.33:13674
+
   smarthome:
     title: Smarthome
     links:
