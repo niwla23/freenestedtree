@@ -48,3 +48,7 @@ links:
   watchbox:
     title: WatchBox
     url: http://192.168.178.97
+
+  internet_tickets:
+    title: Internet Tickets
+    url: http://192.168.178.33:5000
