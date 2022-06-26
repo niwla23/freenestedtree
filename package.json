@@ -1,6 +1,6 @@
 {
   "name": "freenestedtree",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -15,7 +15,10 @@
     "@nuxt/content": "^1.11.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/pwa": "^3.3.5",
+    "@types/lodash": "^4.14.182",
+    "@vue/runtime-dom": "^3.2.37",
     "core-js": "^3.8.3",
+    "lodash": "^4.17.21",
     "nuxt": "^2.14.12",
     "nuxt-property-decorator": "^2.9.1"
   },

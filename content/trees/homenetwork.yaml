@@ -20,7 +20,7 @@ links:
       prometheus_bigmac:
         title: Prometheus bigmac
         url: http://192.168.178.33:9090
-      
+
       alertmanager_bigmac:
         title: Alertmanager bigmac
         url: http://192.168.178.33:9093
@@ -39,10 +39,12 @@ links:
       tasmota:
         title: Steckdosen
         links:
-          - title: Ender 3 Netzteil
+          ender3_plug:
+            title: Ender 3 Netzteil
             url: http://192.168.178.71
 
-          - title: Alwin Fernseher und Anlage
+          alwin_tv_plug:
+            title: Alwin Fernseher und Anlage
             url: http://192.168.178.56
 
   watchbox:
