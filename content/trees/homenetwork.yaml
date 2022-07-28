@@ -1,56 +1,58 @@
 title: Netzwerk
 theme:
-  backgroundImage: /clouds.jpg
-  boxColor: "rgba(49, 130, 206, 0.8)"
+  backgroundImage: /gradient.jpg
+  boxColor: "rgba(100, 100, 100, 0.3)"
   boxBlur: "6px"
   textColor: "#fff"
 
 links:
-  fritz_box:
-    title: FRITZ!Box
-    url: http://192.168.178.1
+  openhab:
+    title: OpenHAB
+    url: https://openhab.b49.cloudserver.click
 
-  monitoring:
-    title: Monitoring
-    links:
-      grafana_bigmac:
-        title: Grafana bigmac
-        url: http://192.168.178.33:3200
+  grafana_bigmac:
+    title: Grafana
+    url: https://monitoring.b49.cloudserver.click
 
-      prometheus_bigmac:
-        title: Prometheus bigmac
-        url: http://192.168.178.33:9090
-
-      alertmanager_bigmac:
-        title: Alertmanager bigmac
-        url: http://192.168.178.33:9093
-
-      gotify:
-        title: Gotify
-        url: https://192.168.178.33:13674
-
-  smarthome:
-    title: Smarthome
-    links:
-      openhab:
-        title: openhab bigmac
-        url: http://192.168.178.33:8080
-
-      tasmota:
-        title: Steckdosen
-        links:
-          ender3_plug:
-            title: Ender 3 Netzteil
-            url: http://192.168.178.71
-
-          alwin_tv_plug:
-            title: Alwin Fernseher und Anlage
-            url: http://192.168.178.56
+  internet_tickets:
+    title: Internet Tickets
+    url: https://fbtickets.b49.cloudserver.click
 
   watchbox:
     title: WatchBox
     url: http://192.168.178.97
 
-  internet_tickets:
-    title: Internet Tickets
-    url: http://192.168.178.33:5000
+  smartdashboard:
+    title: Smartdashboard
+    url: https://smartdashboard.b49.cloudserver.click/config
+
+  bitwarden:
+    title: Bitwarden
+    url: https://passwords.b49.cloudserver.click
+
+  admin:
+    title: Netzwerktechnik und Interne Dienste
+    links:
+      prometheus_bigmac:
+        title: Prometheus bigmac
+        url: https://prometheus.b49.cloudserver.click
+
+      alertmanager_bigmac:
+        title: Alertmanager bigmac
+        url: https://alertmanager.b49.cloudserver.click
+
+      traefik:
+        title: Traefik bigmac
+        url: https://traefik.b49.cloudserver.click
+
+      gotify:
+        title: Gotify
+        url: https://gotify.b49.cloudserver.click
+
+      pihole:
+        title: PiHole
+        url: https://pihole.b49.cloudserver.click
+
+      fritz_box:
+        title: FRITZ!Box
+        url: http://192.168.178.1
