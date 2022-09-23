@@ -3,6 +3,7 @@ export interface Theme {
   boxColor: string
   boxBlur: string
   textColor: string
+  alignText: "left" | "center" | "right"
 }
 
 export interface Branch {

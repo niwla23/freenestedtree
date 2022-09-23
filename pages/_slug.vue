@@ -9,7 +9,7 @@
         'backdrop-filter': `blur(${tree.theme.boxBlur})`,
         'box-shadow': `0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`,
       }">
-        <div class="flex justify-center cursor-pointer" @click="back">
+        <div class="flex cursor-pointer" :style="{'justify-content': tree.theme.alignText}" @click="back">
           <svg v-if="path.length > 0" class="fill-white h-8 w-8" viewBox="0 0 256 512"
             xmlns="http://www.w3.org/2000/svg">
             <path fill="#fff"
@@ -24,7 +24,7 @@
           </h1>
         </div>
         <section v-for="(link, name, index) in dataShown.links" :key="name">
-          <div class="flex justify-center">
+          <div class="flex" :style="{'justify-content': tree.theme.alignText}">
             <p class="border rounded-md border-2 w-6 h-6 mr-2">{{ indexToKey[index] }}</p>
             <a v-if="link.links" class="cursor-pointer" @click="openBranch(name)">
               {{ link.title }}
@@ -42,13 +42,6 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import _ from 'lodash'
 import { Root, Branch } from '@/types/tree'
 
-// @Component({
-//   asyncData (this: MyPage, ctx) {
-//     return {
-//       test: this.bar() + this.foo // works & returns `foobar`
-//     }
-//   }
-// })
 
 @Component
 export default class TreeSlug extends Vue {

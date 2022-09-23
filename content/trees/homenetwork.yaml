@@ -4,6 +4,7 @@ theme:
   boxColor: "rgba(100, 100, 100, 0.3)"
   boxBlur: "6px"
   textColor: "#fff"
+  alignText: "left"
 
 links:
   openhab:
