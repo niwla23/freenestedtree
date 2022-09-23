@@ -24,11 +24,16 @@ links:
 
   smartdashboard:
     title: Smartdashboard
-    url: https://smartdashboard.b49.cloudserver.click/config
+    url: https://smartdashboard.b49.cloudserver.click
 
   bitwarden:
     title: Bitwarden
     url: https://passwords.b49.cloudserver.click
+
+  photos:
+    title: Fotos
+    url: https://photos.b49.cloudserver.click
+
 
   admin:
     title: Netzwerktechnik und Interne Dienste
@@ -46,8 +51,8 @@ links:
         url: https://traefik.b49.cloudserver.click
 
       gotify:
-        title: Gotify
-        url: https://gotify.b49.cloudserver.click
+        title: Octoprint
+        url: https://octoprint.b49.cloudserver.click
 
       pihole:
         title: PiHole
